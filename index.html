@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MentalCare – Your Safe Space</title>
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo"><span>🌿</span> MentalCare</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#diagnosis">Check-in</a></li>
+    <li><a href="#mood">Mood</a></li>
+    <li><a href="#breathe">Breathe</a></li>
+    <li><a href="#help">Help</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-tag">🌱 Your mental wellness companion</div>
+  <h1>A safe space for your <em>mind</em></h1>
+  <p>Track your emotions, breathe mindfully, and talk to an AI support companion — any time you need.</p>
+  <div class="hero-btns">
+    <button class="btn btn-primary" onclick="document.getElementById('diagnosis').scrollIntoView({behavior:'smooth'})">Start Check-in</button>
+    <button class="btn btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Learn More</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image"></div>
+    <div class="reveal">
+      <div class="section-label">About MentalCare</div>
+      <h2 class="section-title">Gentle support, whenever you need it</h2>
+      <p style="color:var(--text-soft);font-size:16px;line-height:1.8;">MentalCare is a private, calm space where you can check in with your mental health, practise mindfulness, and find support — without judgment.</p>
+      <ul class="feature-list">
+        <li><div class="feat-icon">🧠</div><span><strong>Mental Health Check-in</strong> — Answer a short quiz to understand your current state.</span></li>
+        <li><div class="feat-icon">😊</div><span><strong>Mood Tracker</strong> — Log how you feel each day and see your patterns.</span></li>
+        <li><div class="feat-icon">🌬️</div><span><strong>Breathing Exercises</strong> — Guided breathing to calm your nervous system.</span></li>
+        <li><div class="feat-icon">💬</div><span><strong>AI Support Chat</strong> — Talk to a compassionate AI companion 24/7.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section id="diagnosis">
+  <div style="text-align:center;margin-bottom:40px;" class="reveal">
+    <div class="section-label">Mental Health Check-in</div>
+    <h2 class="section-title">How are you doing?</h2>
+    <p class="section-sub" style="margin:0 auto;">Answer a few questions to get a sense of your current mental wellbeing. This is not a clinical diagnosis.</p>
+  </div>
+  <div class="quiz-card reveal">
+    <div class="quiz-progress"><div class="quiz-bar" id="quizBar" style="width:0%"></div></div>
+
+    <div class="question-block active" data-q="0">
+      <h3>Over the past two weeks, how often have you felt nervous, anxious, or on edge?</h3>
+      <div class="q-options">
+        <button class="q-option" data-val="0">Not at all</button>
+        <button class="q-option" data-val="1">Several days</button>
+        <button class="q-option" data-val="2">More than half the days</button>
+        <button class="q-option" data-val="3">Nearly every day</button>
+      </div>
+    </div>
+    <div class="question-block" data-q="1">
+      <h3>How often have you felt down, depressed, or hopeless?</h3>
+      <div class="q-options">
+        <button class="q-option" data-val="0">Not at all</button>
+        <button class="q-option" data-val="1">Several days</button>
+        <button class="q-option" data-val="2">More than half the days</button>
+        <button class="q-option" data-val="3">Nearly every day</button>
+      </div>
+    </div>
+    <div class="question-block" data-q="2">
+      <h3>How often have you had trouble falling or staying asleep, or sleeping too much?</h3>
+      <div class="q-options">
+        <button class="q-option" data-val="0">Not at all</button>
+        <button class="q-option" data-val="1">Several days</button>
+        <button class="q-option" data-val="2">More than half the days</button>
+        <button class="q-option" data-val="3">Nearly every day</button>
+      </div>
+    </div>
+    <div class="question-block" data-q="3">
+      <h3>How often have you felt tired or had little energy?</h3>
+      <div class="q-options">
+        <button class="q-option" data-val="0">Not at all</button>
+        <button class="q-option" data-val="1">Several days</button>
+        <button class="q-option" data-val="2">More than half the days</button>
+        <button class="q-option" data-val="3">Nearly every day</button>
+      </div>
+    </div>
+    <div class="question-block" data-q="4">
+      <h3>How often have you felt lonely or disconnected from others?</h3>
+      <div class="q-options">
+        <button class="q-option" data-val="0">Not at all</button>
+        <button class="q-option" data-val="1">Several days</button>
+        <button class="q-option" data-val="2">More than half the days</button>
+        <button class="q-option" data-val="3">Nearly every day</button>
+      </div>
+    </div>
+
+    <div class="quiz-result" id="quizResult">
+      <div id="resultEmoji" style="font-size:52px;"></div>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-bar-wrap"><div class="result-fill" id="resultFill"></div></div>
+      <div class="result-label" id="resultLabel"></div>
+      <p class="result-desc" id="resultDesc"></p>
+      <button class="btn btn-primary" style="margin-top:28px;" onclick="resetQuiz()">Retake Check-in</button>
+    </div>
+
+    <div class="quiz-nav" id="quizNav">
+      <span id="questionCount" style="font-size:13px;color:var(--text-soft);">Question 1 of 5</span>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- MOOD -->
+<section id="mood">
+  <div style="text-align:center;margin-bottom:44px;" class="reveal">
+    <div class="section-label">Mood Tracker</div>
+    <h2 class="section-title">How are you feeling today?</h2>
+    <p class="section-sub" style="margin:0 auto;">Tap an emoji to log your mood. Tracking patterns helps you understand yourself better.</p>
+  </div>
+  <div class="mood-wrap reveal">
+    <div class="mood-emojis" id="moodEmojis">
+      <div style="text-align:center;">
+        <button class="mood-btn" onclick="saveMood('😊','Great')">😊</button>
+        <div class="mood-label">Great</div>
+      </div>
+      <div style="text-align:center;">
+        <button class="mood-btn" onclick="saveMood('🙂','Good')">🙂</button>
+        <div class="mood-label">Good</div>
+      </div>
+      <div style="text-align:center;">
+        <button class="mood-btn" onclick="saveMood('😐','Okay')">😐</button>
+        <div class="mood-label">Okay</div>
+      </div>
+      <div style="text-align:center;">
+        <button class="mood-btn" onclick="saveMood('😔','Low')">😔</button>
+        <div class="mood-label">Low</div>
+      </div>
+      <div style="text-align:center;">
+        <button class="mood-btn" onclick="saveMood('😢','Sad')">😢</button>
+        <div class="mood-label">Sad</div>
+      </div>
+      <div style="text-align:center;">
+        <button class="mood-btn" onclick="saveMood('😡','Angry')">😡</button>
+        <div class="mood-label">Angry</div>
+      </div>
+    </div>
+    <div class="mood-history">
+      <h4>Recent History</h4>
+      <div id="moodChart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BREATHE -->
+<section id="breathe" class="breath-section">
+  <div class="section-label" style="color:#b8e0d4;">Mindfulness</div>
+  <h2 class="section-title">Breathing Exercise</h2>
+  <p class="section-sub">Box breathing helps calm your nervous system. Follow the circle's rhythm.</p>
+  <div class="breath-ring">
+    <div class="breath-ring-outer"></div>
+    <div class="breath-circle">
+      <span class="breath-text" id="breathLabel">Breathe</span>
+    </div>
+  </div>
+  <div class="breath-instructions">
+    <div class="breath-step"><strong>4s</strong>Inhale</div>
+    <div class="breath-step"><strong>4s</strong>Hold</div>
+    <div class="breath-step"><strong>4s</strong>Exhale</div>
+    <div class="breath-step"><strong>4s</strong>Hold</div>
+  </div>
+</section>
+
+<!-- HELP / RESOURCES -->
+<section id="help">
+  <div style="text-align:center;margin-bottom:48px;" class="reveal">
+    <div class="section-label">Support Resources</div>
+    <h2 class="section-title">You're not alone</h2>
+    <p class="section-sub" style="margin:0 auto;">Explore these resources or use the chat at the bottom right to talk to your AI companion.</p>
+  </div>
+  <div class="resource-grid">
+    <div class="resource-card reveal">
+      <div class="res-icon">🧘</div>
+      <h3>Self-Care Tips</h3>
+      <p>Small daily habits — journaling, walking, limiting screen time — can significantly improve mental wellbeing.</p>
+    </div>
+    <div class="resource-card reveal">
+      <div class="res-icon">📞</div>
+      <h3>Crisis Lines</h3>
+      <p>If you're in distress, please reach out to a crisis helpline in your region. You deserve immediate support.</p>
+    </div>
+    <div class="resource-card reveal">
+      <div class="res-icon">🌿</div>
+      <h3>Mindfulness</h3>
+      <p>Regular meditation, breathing exercises, and body scans help regulate emotions and reduce stress.</p>
+    </div>
+    <div class="resource-card reveal">
+      <div class="res-icon">💬</div>
+      <h3>AI Companion</h3>
+      <p>Use the chat button at the bottom right to talk through how you're feeling with your AI support companion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>🌿 MentalCare — Not a substitute for professional mental health care.</p>
+  <p style="margin-top:8px;">If you're in crisis, please contact a qualified professional or crisis helpline. <span>You matter.</span></p>
+</footer>
+
+<!-- CHAT FAB -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Open support chat">💬</button>
+
+<!-- CHAT WINDOW -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">🌿</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">MentalCare AI</div>
+      <div class="chat-header-status">Here to listen</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMsgs"></div>
+  <div class="chat-input-area">
+    <input id="chatInput" placeholder="Share how you're feeling…">
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
