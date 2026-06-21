@@ -13,7 +13,7 @@ app.get("/", (req, res) => res.sendFile(path.join(http://localhost:3000, "mental
 
 // ── Replace with your free Gemini API key from https://aistudio.google.com ──
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "AIzaSyD1Wk68Ak9e8KptPgAPjeS_NykBa8CRt44";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${AIzaSyD1Wk68Ak9e8KptPgAPjeS_NykBa8CRt44}`;
 
 const SYSTEM_PROMPT = `You are a compassionate and warm mental health support companion for a wellness app called MentalCare.
 Your role is to listen with empathy, offer gentle support, and help users feel heard and less alone.
