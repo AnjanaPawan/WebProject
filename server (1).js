@@ -8,8 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 // Serve mentalcare.html at http://localhost:3000
-app.use(express.static(path.join(__dirname)));
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "mentalcare.html")));
+app.use(express.static(path.join(http://localhost:3000)));
+app.get("/", (req, res) => res.sendFile(path.join(http://localhost:3000, "mentalcare.html")));
 
 // ── Replace with your free Gemini API key from https://aistudio.google.com ──
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "AIzaSyD1Wk68Ak9e8KptPgAPjeS_NykBa8CRt44";
